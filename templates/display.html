@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SPA</title>
+</head>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  p {
+    font-size:20px;
+  }
+
+  .dotted{
+    border-style: dotted;
+    }
+
+  .msg {
+    text-align: center;
+  }
+
+  .info {
+    margin: 4px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-left: 6px solid #000000
+
+  }
+  img {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+  }
+</style>
+<body>
+    {% for tweet in tweets %}
+    <div class="info">
+        <p>{{ tweet }}</p>
+    </div>
+    {% endfor %}
+    {% if score >= 0 and score <0.25 %}
+        <p class="msg">I am very happy and thankful for this life</p>
+        <img src="/static/happy.gif" alt="happy"/>
+    {% endif %}
+    {% if score >= 0.25 and score <0.5 %}
+        <p class="msg">I am okay</p>
+    {% endif %}
+    {% if score >= 0.5 and score <0.75 %}
+        <p class="msg">I am depressed</p>
+        <img src="/static/iamdepressed.gif" alt="depressed"/>
+    {% endif %}
+    {% if score > 0.75 %}
+        <p class="msg">Big sad! NEED HELP!</p>
+        <img src="/static/bigsad.gif" alt="big sad"/>
+        <marquee width="100%" direction="left"> Contact your relatives as soon as possible</marquee>
+    {% endif %}
+</body>
+</html>
